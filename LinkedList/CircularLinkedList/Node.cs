@@ -1,13 +1,13 @@
 namespace LinkedList.CircularLinkedList;
 
-public class Node<T>
+public class Node
 {
-    public Node(T data)
+    public Node(char data)
     {
         Data = data;
 		Next = null;
     }
 
-    public T Data { get; set; }
-    public Node<T>? Next { get; set; }
+    public char Data { get; set; }
+    public Node? Next { get; set; }
 }
