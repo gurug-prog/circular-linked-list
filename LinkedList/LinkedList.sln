@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularLinkedList", "CircularLinkedList\CircularLinkedList.csproj", "{7B18E962-6D9F-4ECD-A304-F49FA7AE04F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularLinkedList.Tests", "CircularLinkedList.Tests\CircularLinkedList.Tests.csproj", "{5AD4161A-BD4F-4702-87FA-D7B45A22F0CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7B18E962-6D9F-4ECD-A304-F49FA7AE04F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B18E962-6D9F-4ECD-A304-F49FA7AE04F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B18E962-6D9F-4ECD-A304-F49FA7AE04F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD4161A-BD4F-4702-87FA-D7B45A22F0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD4161A-BD4F-4702-87FA-D7B45A22F0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD4161A-BD4F-4702-87FA-D7B45A22F0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD4161A-BD4F-4702-87FA-D7B45A22F0CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

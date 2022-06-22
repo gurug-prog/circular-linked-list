@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CircularLinkedList\CircularLinkedList.csproj" />
+  </ItemGroup>
+
 </Project>
