@@ -43,6 +43,14 @@ public class CircularLinkedListTests
         Assert.Equal(lenExpected, _list.Length());
     }
 
+    [Fact]
+    public void TestDelete_ResultOperationExceptionThrowed()
+    {
+        Assert.Throws<System.InvalidOperationException>(
+            () => _list.Delete(100)
+        );
+    }
+
     [Theory]
     [InlineData(new char[]{ 'c', 'l', 'e', 'a', 'r' })]
     public void TestClear_ResultListWasCleared(char[] testValues)
@@ -98,4 +106,14 @@ public class CircularLinkedListTests
 
         Assert.Equal(testValues.Length, _list.Length());
     }
+
+    [Fact]
+    public void TestDeleteAll_ResultOperationExceptionThrowed()
+    {
+        var element = 'a';
+        Assert.Throws<System.InvalidOperationException>(
+            () => _list.DeleteAll(element)
+        );
+    }
+
 }
