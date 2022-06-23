@@ -164,4 +164,18 @@ public class CircularLinkedListTests
 
         Assert.Equal(element, _list.Get(index));
     }
+
+    [Theory]
+    [InlineData('x', 1, new char[]{'z', 'x', 'x', 'x', 'K', 'B'})]
+    [InlineData('d', 0, new char[]{'d', 'e', 'l', 'd'})]
+    [InlineData('m', 3, new char[]{'a', 'b', 'c', 'm', 'f'})]
+    public void TestFindFirst_ResultCharInsertedOnCorrectPlace
+        (char element, int expectedIndex, char[] testValues)
+    {
+        FillTestValuesIntoList(_list, testValues);
+
+        var actualIndex = _list.FindFirst(element);
+
+        Assert.Equal(expectedIndex, actualIndex);
+    }
 }
