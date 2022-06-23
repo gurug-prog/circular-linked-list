@@ -147,7 +147,28 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public void Insert(char element, int index)
 	{
-		throw new NotImplementedException();
+		if (index < 0)
+		{
+			throw new IndexOutOfRangeException("Index must be positive.");
+		}
+		else if (index >= _count)
+		{
+			throw new IndexOutOfRangeException("Index must be within 0 and (len - 1) of list index.");
+		}
+
+		var node = new Node(element);
+		var currNode = _head;
+
+		for (int i = 0; i < index; i++)
+		{
+			if (i == index - 1)
+			{
+				var nextNode = currNode!.Next;
+				currNode.Next = node;
+				node.Next = nextNode;
+			}
+			currNode = currNode!.Next;
+		}
 	}
 
 	public int Length()
