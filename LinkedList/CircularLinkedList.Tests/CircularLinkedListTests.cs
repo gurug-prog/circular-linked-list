@@ -182,7 +182,7 @@ public class CircularLinkedListTests
     [Theory]
     [InlineData('x', 3, new char[]{'z', 'x', 'x', 'x', 'K', 'B'})]
     [InlineData('d', 2, new char[]{'d', 'e', 'd', '0'})]
-    [InlineData('q', 4, new char[]{'a', 'a', 'q', 'q', 'f'})]
+    [InlineData('f', 4, new char[]{'a', 'a', 'q', 'q', 'f'})]
     public void TestFindLast_ResultLastMatchingIndex
         (char element, int expectedIndex, char[] testValues)
     {
