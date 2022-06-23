@@ -11,11 +11,11 @@ public class CircularLinkedListTests
         _list = new CircularLinkedList();
     }
 
-    private void FillTestValuesIntoList(char[] testValues)
+    private void FillTestValuesIntoList(ICircularLinkedList list, char[] testValues)
     {
         foreach (var el in testValues)
         {
-            _list.Append(el);
+            list.Append(el);
         }
     }
 
@@ -35,7 +35,7 @@ public class CircularLinkedListTests
     [InlineData(2, new char[]{ 'b', 'o', 'o', 'm', '!' })]
     public void TestDelete_ResultElementWasDeleted(int index, char[] testValues)
     {
-        FillTestValuesIntoList(testValues);
+        FillTestValuesIntoList(_list, testValues);
         var lenExpected = testValues.Length - 1;
 
         _list.Delete(index);
@@ -55,7 +55,7 @@ public class CircularLinkedListTests
     [InlineData(new char[]{ 'c', 'l', 'e', 'a', 'r' })]
     public void TestClear_ResultListWasCleared(char[] testValues)
     {
-        FillTestValuesIntoList(testValues);
+        FillTestValuesIntoList(_list, testValues);
         var lenExpected = 0;
 
         _list.Clear();
@@ -71,7 +71,7 @@ public class CircularLinkedListTests
     public void TestGet_ResultMathesElement
         (char expectedEl, int index, char[] testValues)
     {
-        FillTestValuesIntoList(testValues);
+        FillTestValuesIntoList(_list, testValues);
 
         var actualEl = _list.Get(index);
 
@@ -86,7 +86,7 @@ public class CircularLinkedListTests
     public void TestDeleteAll_ResultAllMatchingElementsDeleted
         (char element, int lenExpected, char[] testValues)
     {
-        FillTestValuesIntoList(testValues);
+        FillTestValuesIntoList(_list, testValues);
 
         _list.DeleteAll(element);
 
@@ -100,7 +100,7 @@ public class CircularLinkedListTests
     public void TestDeleteAll_ResultNothingChanged
     (char element, char[] testValues)
     {
-        FillTestValuesIntoList(testValues);
+        FillTestValuesIntoList(_list, testValues);
 
         _list.DeleteAll(element);
 
@@ -116,4 +116,21 @@ public class CircularLinkedListTests
         );
     }
 
+    [Theory]
+    [InlineData(new char[]{'z', 'x', 'c'}, new char[]{'S', 'F'})]
+    [InlineData(new char[]{'a', 'b'}, new char[0])]
+    public void TestExtend_ResultListExtended
+        (char[] origElements, char[] extElements)
+    {
+        var expectedLen = origElements.Length + extElements.Length;
+        FillTestValuesIntoList(_list, origElements);
+        var extList = new CircularLinkedList();
+        FillTestValuesIntoList(extList, extElements);
+        var extListStartLen = extList.Length();
+        
+        _list.Extend(extList);
+
+        Assert.Equal(expectedLen, _list.Length());
+        Assert.Equal(extListStartLen, extList.Length());
+    }
 }
