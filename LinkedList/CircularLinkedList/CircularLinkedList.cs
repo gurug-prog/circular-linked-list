@@ -107,7 +107,10 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public void Extend(ICircularLinkedList elements)
 	{
-		throw new NotImplementedException();
+		for (int i = 0; i < elements.Length(); i++)
+		{
+			this.Append(elements.Get(i));
+		}
 	}
 
 	public int FindFirst(char element)
@@ -115,10 +118,6 @@ public class CircularLinkedList : ICircularLinkedList
 		throw new NotImplementedException();
 	}
 
-	//
-	//
-	//
-	//
 	public int FindLast(char element)
 	{
 		throw new NotImplementedException();
@@ -156,11 +155,6 @@ public class CircularLinkedList : ICircularLinkedList
 		return _count;
 	}
 
-	
-	//
-	//
-	//
-	//
 	public void Reverse()
 	{
 		throw new NotImplementedException();
