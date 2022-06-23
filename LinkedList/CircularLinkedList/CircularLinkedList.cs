@@ -40,7 +40,14 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public ICircularLinkedList Clone()
 	{
-		throw new NotImplementedException();
+		var listCopy = new CircularLinkedList();
+
+		for (int i = 0; i < this.Length(); i++)
+		{
+			listCopy.Append(this.Get(i));
+		}
+
+		return listCopy;
 	}
 
 	public char Delete(int index)
