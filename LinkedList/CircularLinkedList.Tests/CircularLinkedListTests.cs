@@ -150,4 +150,18 @@ public class CircularLinkedListTests
             Assert.Equal(_list.Get(i), listCopy.Get(i));
         }
     }
+
+    [Theory]
+    [InlineData('p', 3, new char[]{'z', 'x', 'c', 'B', 'K', 'B'})]
+    [InlineData('x', 2, new char[]{'h', 'e', 'l', 'l'})]
+    [InlineData('y', 4, new char[]{'a', 'b', 'c', 'm', 'f'})]
+    public void TestInsert_ResultCharInsertedOnCorrectPlace
+        (char element, int index, char[] testValues)
+    {
+        FillTestValuesIntoList(_list, testValues);
+
+        _list.Insert(element, index);
+
+        Assert.Equal(element, _list.Get(index));
+    }
 }
