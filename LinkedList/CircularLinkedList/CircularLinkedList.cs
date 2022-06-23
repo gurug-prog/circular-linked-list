@@ -130,7 +130,19 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public int FindLast(char element)
 	{
-		throw new NotImplementedException();
+		var currNode = _head;
+		var resultIndex = -1;
+
+		for (int i = 0; i < this.Length(); i++)
+		{
+			if (currNode!.Data == element)
+			{
+				resultIndex = i;
+			}
+			currNode = currNode!.Next;
+		}
+
+		return resultIndex;
 	}
 
 	public char Get(int index)
