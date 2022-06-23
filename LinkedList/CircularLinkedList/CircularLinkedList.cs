@@ -115,7 +115,17 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public int FindFirst(char element)
 	{
-		throw new NotImplementedException();
+		var currNode = _head;
+		for (int i = 0; i < this.Length(); i++)
+		{
+			if (currNode!.Data == element)
+			{
+				return i;
+			}
+			currNode = currNode!.Next;
+		}
+
+		return -1;
 	}
 
 	public int FindLast(char element)
