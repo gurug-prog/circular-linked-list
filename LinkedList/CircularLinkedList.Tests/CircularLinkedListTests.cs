@@ -192,4 +192,21 @@ public class CircularLinkedListTests
 
         Assert.Equal(expectedIndex, actualIndex);
     }
+
+    [Theory]
+    [InlineData(new char[]{'a', 's', 'd', 'y', 'u', 'L'})]
+    [InlineData(new char[]{'1', '2', '3', '4'})]
+    [InlineData(new char[]{'u', 'l', 'M', 'N', 'p'})]
+    public void TestReverse_ResultReversedListMatchesOriginal(char[] testValues)
+    {
+        FillTestValuesIntoList(_list, testValues);
+
+        _list.Reverse();
+
+        for (int i = 0; i < _list.Length(); i++)
+        {
+            var reverseIndex = testValues.Length - i - 1;
+            Assert.Equal(_list.Get(i), testValues[reverseIndex]);
+        }
+    }
 }
