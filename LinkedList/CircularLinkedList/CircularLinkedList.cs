@@ -200,6 +200,17 @@ public class CircularLinkedList : ICircularLinkedList
 
 	public void Reverse()
 	{
-		throw new NotImplementedException();
+		var currNode = _head;
+		var prevNode = _tail;
+		this._head = this._tail;
+		this._tail = currNode;
+
+		for (int i = 0; i < this.Length(); i++)
+		{
+			var nextNode = currNode!.Next;
+			currNode!.Next = prevNode!;
+			prevNode = currNode;
+			currNode = nextNode;
+		}
 	}
 }
