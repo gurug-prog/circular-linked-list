@@ -133,4 +133,21 @@ public class CircularLinkedListTests
         Assert.Equal(expectedLen, _list.Length());
         Assert.Equal(extListStartLen, extList.Length());
     }
+
+    [Theory]
+    [InlineData(new char[]{'h', 'e', 'l', 'l'})]
+    [InlineData(new char[]{'a'})]
+    [InlineData(new char[]{})]
+    public void TestClone_ResultListCloneMatchesOriginal(char[] elements)
+    {
+        FillTestValuesIntoList(_list, elements);
+
+        var listCopy = _list.Clone();
+
+        Assert.Equal(_list.Length(), listCopy.Length());
+        for (int i = 0; i < listCopy.Length(); i++)
+        {
+            Assert.Equal(_list.Get(i), listCopy.Get(i));
+        }
+    }
 }
